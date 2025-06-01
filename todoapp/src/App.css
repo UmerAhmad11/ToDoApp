@@ -1,42 +1,57 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* Remove max-width to avoid layout clipping */
+  width: 100%;
+  padding-top: 630px; /* Space below fixed header */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 1550px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #0f0f0f; /* fallback */
+  z-index: 50;
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4); /* neon pink glow */
+  border-bottom: 2px solid #00ffff;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header .logo {
+  height: 80%;                  /* scales height relative to header */
+  width: auto;                  /* auto width to maintain aspect ratio */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.App-header .banner {
+  flex: 1;                      /* take up remaining space */
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.card {
-  padding: 2em;
+.todo-card {
+  background-color: #1a1a1a;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: transform 0.2s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.todo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.5);
+}
+
+body {
+  min-width: 1550;
+  background-image: url('./assets/backgroundone.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
