@@ -1,7 +1,6 @@
 #root {
   /* Remove max-width to avoid layout clipping */
   width: 100%;
-  padding-top: 630px; /* Space below fixed header */
   text-align: center;
 }
 
@@ -9,6 +8,7 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
+  margin-top: 50px;
 }
 
 
@@ -47,20 +47,7 @@
   display: block;
 }
 
-.todo-card {
-  background-color: #1a1a1a;
-  border: 2px solid #00ffff;
-  border-radius: 12px;
-  padding: 1rem;
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-  transition: transform 0.2s ease;
-}
 
-.todo-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 16px rgba(255, 0, 255, 0.5);
-}
 
 body {
   min-width: 1550;
@@ -68,6 +55,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  min-height: 650px;
 }
 
 body::before {
@@ -114,5 +102,90 @@ body::before {
   font-size: 12px;
   line-height: 1.5;
   color: #ffffff;
+}
+
+.todo-list {
+  font-family: 'Press Start 2P', monospace;
+  color: #00ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  background-color: #1a1a1a;
+  border: 2px solid #00ffff;
+  padding: 0.5rem;
+  color: white;
+  width: 250px;
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.add-btn, .clear-btn {
+  background-color: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 0.4rem 0.7rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #00ffff;
+  color: black;
+}
+
+.clear-btn:hover {
+  background-color: #ff007f;
+  color: white;
+  border-color: #ff007f;
+}
+
+.todo-card {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background-color: #1a1a1a;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+.todo-card.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo-card input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.todo-text {
+  background: transparent;
+  border: none;
+  color: white;
+  flex: 1;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff007f;
+  font-size: 14px;
+  cursor: pointer;
 }
 
