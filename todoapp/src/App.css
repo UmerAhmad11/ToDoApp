@@ -1,18 +1,22 @@
+/* ====================================================
+   🧱 Root + Layout Setup
+==================================================== */
 #root {
-  /* Remove max-width to avoid layout clipping */
   width: 100%;
   text-align: center;
 }
 
 .container {
   max-width: 960px;
+  min-width: unset;
   margin: 0 auto;
   padding: 2rem;
   margin-top: 50px;
 }
 
-
-
+/* ====================================================
+   🎯 App Header
+==================================================== */
 .App-header {
   position: fixed;
   top: 0;
@@ -22,15 +26,15 @@
   display: flex;
   align-items: center;
   padding: 0 24px;
-  background-color: #0f0f0f; /* fallback */
+  background-color: #0f0f0f;
   z-index: 50;
-  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4); /* neon pink glow */
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4);
   border-bottom: 2px solid #00ffff;
 }
 
 .App-header .logo {
-  height: 80%;                  /* scales height relative to header */
-  width: auto;                  /* auto width to maintain aspect ratio */
+  height: 80%;
+  width: auto;
 }
 
 .App-header .logo:hover {
@@ -39,23 +43,23 @@
   transition: all 0.3s ease;
 }
 
-
 .App-header .banner {
-  flex: 1;                      /* take up remaining space */
+  flex: 1;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-
-
+/* ====================================================
+   🌌 Body + Background
+==================================================== */
 body {
-  min-width: 1550;
+  min-width: unset;
   background-image: url('./assets/bgtwo.gif');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 650px;
+  min-height: 850px;
 }
 
 body::before {
@@ -67,9 +71,12 @@ body::before {
   z-index: 999;
 }
 
+/* ====================================================
+   📌 Sidebar Section
+==================================================== */
 .sidebar {
-  width: 250px;
-  background-color: rgba(26, 26, 26, 0.6); /* ⬅️ 60% opaque dark bg */
+  width: 320px;
+  background-color: rgba(26, 26, 26, 0.6);
   color: #00ffff;
   font-family: 'Press Start 2P', monospace;
   padding: 2rem 1rem;
@@ -84,26 +91,21 @@ body::before {
   height: calc(100vh - 150px);
 }
 
-
-.username {
+.username,
+.clock,
+.calendar {
   align-self: center;
-  font-size: 12px;
-  margin-bottom: 2rem;
-}
-
-.clock {
-  align-self: center;
-  font-size: 12px;
+  font-size: 18px;
   margin-bottom: 2rem;
 }
 
 .calendar {
-  align-self: center;
-  font-size: 12px;
-  line-height: 1.5;
   color: #ffffff;
 }
 
+/* ====================================================
+   ✅ To-Do List
+==================================================== */
 .todo-list {
   font-family: 'Press Start 2P', monospace;
   color: #00ffff;
@@ -123,16 +125,19 @@ body::before {
   background-color: #1a1a1a;
   border: 2px solid #00ffff;
   padding: 0.5rem;
+  margin-top: 30px;
   color: white;
   width: 250px;
   font-family: inherit;
   font-size: 10px;
 }
 
-.add-btn, .clear-btn {
+.add-btn,
+.clear-btn {
   background-color: transparent;
   border: 2px solid #00ffff;
   color: #00ffff;
+  margin-top: 30px;
   padding: 0.4rem 0.7rem;
   font-family: inherit;
   cursor: pointer;
@@ -189,3 +194,157 @@ body::before {
   cursor: pointer;
 }
 
+/* ====================================================
+   📅 Mini Calendar
+==================================================== */
+.mini-calendar {
+  font-size: 9px;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  color: #00ffff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #00ffff;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.month-label {
+  font-size: 12px;
+  text-align: center;
+  flex-grow: 1;
+  color: #ff00ff;
+  text-shadow: 0 0 4px #ff00ff;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 0.2rem 0.5rem;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Press Start 2P', monospace;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #00ffff;
+  color: #0f0f0f;
+  transform: scale(1.05);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.day-label {
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 0 2px #00ffff;
+}
+
+.day-cell {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+  font-size: 10px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.day-cell:hover {
+  background-color: #00ffff;
+  color: #0f0f0f;
+  transform: scale(1.05);
+  border-color: #00ffff;
+}
+
+.day-cell.empty {
+  background-color: transparent;
+  border: none;
+}
+
+.day-cell.today {
+  background-color: #00ffff;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 6px #00ffff;
+}
+
+.day-cell.selected {
+  border: 2px solid #ff00ff;
+  background-color: rgba(255, 0, 255, 0.2);
+}
+
+/* ====================================================
+   🕰️ Analog Clock
+==================================================== */
+.analog-clock {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 4px solid #00ffff;
+  border-radius: 50%;
+  margin: 1rem auto;
+  background: radial-gradient(#1a1a1a, #000000);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  border-radius: 2px;
+}
+
+.hour-hand {
+  stroke: #00ffff;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.minute-hand {
+  stroke: magenta;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.second-hand {
+  stroke: red;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.number {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00ffff;
+}

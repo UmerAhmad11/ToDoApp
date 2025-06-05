@@ -3,11 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "electron.js",
+  "description": "Cyberpunk-styled desktop ToDo App built with React, Vite, and Electron",
+  "author": "Umer Ahmad",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron": "npm run build && electron .",
+    "start": "vite"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
@@ -21,6 +26,8 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.9.0",
     "autoprefixer": "^10.4.21",
+    "electron": "^36.4.0",
+    "electron-packager": "^17.1.2",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
@@ -29,9 +36,12 @@
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "electron",
+    "vite",
+    "react",
+    "todo",
+    "desktop",
+    "tailwind"
+  ]
 }
